@@ -1,10 +1,17 @@
 
 require("dotenv").config();
+
 const express = require("express");
+
 const mongoose = require("mongoose");
+
 const { PORT = 4000, MONGODB_URL } = process.env;
+
 const app = express();
-const peopleController = require('./controllers/people')
+
+const peopleRoutes = require('./routes/people')
+
+// const peopleController = require('./controllers/peopleController')
 
 
 
@@ -28,15 +35,12 @@ mongoose.connection
 app.use(cors()); // to prevent cors errors, open access to all origins
 app.use(morgan("dev")); // logging
 app.use(express.json()); // parse json bodies
-app.use(peopleController);
-
-// app.use(express.urlencoded({extended:  true}));
-app.get("/", (req, res) => {
-    res.send("hello world");
-});
 
 
 
+
+
+app.use('/api/people',peopleRoutes)
 
 
   
