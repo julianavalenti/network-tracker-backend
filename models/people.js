@@ -10,4 +10,6 @@ const PeopleSchema = new mongoose.Schema({
     notes: String,
 });
 
-module.exports = mongoose.model("People", PeopleSchema);
+const People = mongoose.model('People', PeopleSchema)
+
+module.exports = People

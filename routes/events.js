@@ -1,6 +1,6 @@
 const express = require('express');
 const Events = require('../models/events');
-const router = express.Router();
+const eventsRouter = express.Router();
 const {
   getEvents,
   getEvent,
@@ -10,18 +10,18 @@ const {
 } = require('../controllers/eventsController');
 
 // get all events
-router.get('/', getEvents);
+eventsRouter.get('/', getEvents);
 
 // get one event
-router.get('/:id', getEvent);
+eventsRouter.get('/:id', getEvent);
 
 // POST new event
-router.post('/', createEvents);
+eventsRouter.post('/', createEvents);
 
 // DELETE event
-router.delete('/:id', deleteEvents);
+eventsRouter.delete('/:id', deleteEvents);
 
 // UPDATE event
-router.patch('/:id', updateEvents);
+eventsRouter.patch('/:id', updateEvents);
 
-module.exports = router;
+module.exports = eventsRouter;

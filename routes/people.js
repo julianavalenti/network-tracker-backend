@@ -1,6 +1,6 @@
 const express = require('express')
 const People = require('../models/people')
-const router = express.Router()
+const peopleRouter = express.Router()
 const {
     
 getPeople,
@@ -12,22 +12,22 @@ updatePeople
 
 
 // get all people
-router.get('/', getPeople)
+peopleRouter.get('/', getPeople)
 
 //get one person
 
-router.get('/:id',getPerson)
+peopleRouter.get('/:id',getPerson)
 
 //POST new person
 
-router.post('/', createPeople)
+peopleRouter.post('/', createPeople)
 
 //DELETE person
 
-router.delete('/:id', deletePeople)
+peopleRouter.delete('/:id', deletePeople)
 
 //UPDATE person
-router.patch('/:id',updatePeople)
+peopleRouter.patch('/:id',updatePeople)
 
  
-module.exports = router
+module.exports = peopleRouter
