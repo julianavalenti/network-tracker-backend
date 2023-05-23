@@ -86,5 +86,5 @@ module.exports = {
   createPeople,
   deletePeople,
   updatePeople,
-  peopleRouter
+  
 }
