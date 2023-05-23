@@ -18,8 +18,8 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 const peopleRoutes = require('./routes/people');
 const eventsRoutes = require('./routes/events');
-app.use('/api/people', peopleRoutes);
-app.use('/api/events', eventsRoutes);
+app.use('/people', peopleRoutes);
+app.use('/events', eventsRoutes);
 
 // Database connection
 mongoose.connect(MONGODB_URL, {
@@ -30,6 +30,10 @@ mongoose.connect(MONGODB_URL, {
   console.log("Connected to MongoDB");
 }).catch((error) => {
   console.error("Error connecting to MongoDB:", error);
+});
+
+app.get("/", (req, res) => {
+  res.send("hello")
 });
 
 // Start the server
